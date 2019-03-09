@@ -1,6 +1,5 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import { BrowserModule} from '@angular/platform-browser/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ApplicationModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
@@ -10,6 +9,7 @@ import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -19,7 +19,8 @@ import { CommonModule } from '@angular/common';
     MainNavComponent
   ],
   imports: [
-    BrowserModule,
+    HttpClientModule,
+    ApplicationModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     LayoutModule,
@@ -30,7 +31,7 @@ import { CommonModule } from '@angular/common';
     MatListModule,
     CommonModule
   ],
-  exports: [CommonModule, BrowserModule],
+  exports: [CommonModule],
   providers: [],
   bootstrap: [AppComponent]
 })
