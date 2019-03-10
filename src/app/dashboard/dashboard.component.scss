@@ -1,0 +1,15 @@
+.dashboard {
+  border: 1px solid red;
+  width: 100%;
+
+  .catogeryBox {
+    border: 1px solid blue;
+    border-radius: 7px;
+    cursor: pointer;
+
+    p {
+      color: red;
+    }
+  }
+
+}

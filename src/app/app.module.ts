@@ -1,3 +1,4 @@
+import { CategoriesService } from './services/category/categories.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, ApplicationModule } from '@angular/core';
 
@@ -10,6 +11,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { Browser } from 'protractor';
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule
   ],
   exports: [CommonModule],
-  providers: [],
+  providers: [
+    CategoriesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
