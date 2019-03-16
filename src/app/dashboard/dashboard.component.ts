@@ -9,14 +9,13 @@ import { CategoriesService } from '../services/category/categories.service';
 })
 export class DashboardComponent implements OnInit {
   category: Category;
-  some;
+  availableCategory;
 
   constructor(private categories: CategoriesService) { }
 
   ngOnInit() {
     this.categories.getCategory().subscribe((res) => {
-      // console.log(res);
-      this.some = res;
+      this.availableCategory = res.categories;
     });
   }
 

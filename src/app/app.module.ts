@@ -12,13 +12,20 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { Browser } from 'protractor';
-
+import { CapitalizePipe } from './common/pipes/capitalize.pipe';
+import { ProductdetailComponent } from './productdetail/productdetail.component';
+import { PaymentComponent } from './payment/payment.component';
+import { SelectproductComponent } from './selectproduct/selectproduct.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    MainNavComponent
+    MainNavComponent,
+    CapitalizePipe,
+    SelectproductComponent,
+    ProductdetailComponent,
+    PaymentComponent
   ],
   imports: [
     HttpClientModule,

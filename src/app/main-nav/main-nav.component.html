@@ -1,26 +1,36 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
-      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-      [mode]="(isHandset$ | async) ? 'over' : 'side'"
-      [opened]="!(isHandset$ | async)">
-    <mat-toolbar>Menu</mat-toolbar>
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)">
+    <mat-toolbar>Company</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="#">Link 1</a>
-      <a mat-list-item href="#">Link 2</a>
-      <a mat-list-item href="#">Link 3</a>
+      <li [routerLinkActive]="'isActive'" class="list-group-item">
+        <a [routerLink]="['/projectColors']" [routerLinkActive]="'isActive'">
+          <span>Dashboard</span>
+        </a>
+      </li>
+      <li [routerLinkActive]="'isActive'" class="list-group-item">
+        <a [routerLink]="['/selectproduct']" [routerLinkActive]="'isActive'">
+          <span>Select product</span>
+        </a>
+      </li>
+      <li [routerLinkActive]="'isActive'" class="list-group-item">
+        <a [routerLink]="['/productdetail']" [routerLinkActive]="'isActive'">
+          <span>Product Detail</span>
+        </a>
+      </li>
+      <li [routerLinkActive]="'isActive'" class="list-group-item">
+        <a [routerLink]="['/payment']" [routerLinkActive]="'isActive'">
+          <span>Payment</span>
+        </a>
+      </li>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary">
-      <button
-        type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-        (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>project</span>
+      <span class="ml-3">Project Color_699 by Piyu & Jay</span>
     </mat-toolbar>
     <!-- Add Content Here -->
     <ng-container>

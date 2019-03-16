@@ -3,26 +3,11 @@
     <div class="col-12">
       <div class="dashboard">
         <div class="row">
-          <div class="col-6" *ngFor="let name of some">
+          <div class="col-6" *ngFor="let product of availableCategory?.productCategory">
             <div class="catogeryBox boxIndex"> 
-              <p>{{name}}/p>
-            </div>
-          </div>
-          <div class="col-6">
-            <div class="catogeryBox">
-              <p>This is catogery - 2</p>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-6">
-            <div class="catogeryBox">
-              <p>This is catogery - 3</p>
-            </div>
-          </div>
-          <div class="col-6">
-            <div class="catogeryBox">
-              <p>This is catogery - 4</p>
+              <button mat-button  style="width:100%;">
+                <p class="mb-0">{{product.type | capitalize}}</p>
+              </button>
             </div>
           </div>
         </div>

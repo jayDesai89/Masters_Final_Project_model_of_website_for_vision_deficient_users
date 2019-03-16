@@ -1,5 +1,21 @@
 {
-    "categories": [
-        "men","women","kids","babies"
+  "categories": {
+    "productCategory": [{
+        "type": "men",
+        "id": 0
+      },
+      {
+        "type": "women",
+        "id": 1
+      },
+      {
+        "type": "kids",
+        "id": 2
+      },
+      {
+        "type": "babies",
+        "id": 3
+      }
     ]
+  }
 }
