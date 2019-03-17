@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ThemeService } from '../services/theme/theme.service';
 
 @Component({
   selector: 'app-payment',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./payment.component.scss']
 })
 export class PaymentComponent implements OnInit {
-
-  constructor() { }
+  appTheme;
+  constructor(public theme: ThemeService) { }
 
   ngOnInit() {
+    this.theme.themeOfApp.subscribe(res => this.appTheme = res);
   }
 
 }

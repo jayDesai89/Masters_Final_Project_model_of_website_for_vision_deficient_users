@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ThemeService } from '../services/theme/theme.service';
 
 @Component({
   selector: 'app-selectproduct',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./selectproduct.component.scss']
 })
 export class SelectproductComponent implements OnInit {
-
-  constructor() { }
+  appTheme;
+  constructor(public theme: ThemeService) { }
 
   ngOnInit() {
+    this.theme.themeOfApp.subscribe(res => this.appTheme = res);
   }
 
 }

@@ -1,15 +1,19 @@
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 16px;
+}
 .dashboard {
-  border: 1px solid red;
   width: 100%;
 
   .catogeryBox {
     border: 1px solid blue;
     border-radius: 7px;
     cursor: pointer;
+    margin: 3%;
 
     p {
-      color: red;
+      color: black;
     }
   }
 
 }
+

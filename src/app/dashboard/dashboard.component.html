@@ -3,10 +3,31 @@
     <div class="col-12">
       <div class="dashboard">
         <div class="row">
+          <div class="col-6">
+            <div>
+              <h4>Dashboard</h4>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="row">
+              <div class="col-8">
+                <div *ngIf="themeConfirmed !== ''">
+                  <h4>Slected theme : {{themeConfirmed}}</h4>
+                </div>
+              </div>
+              <div class="col-4">
+                <div *ngIf="themeConfirmed !== ''">
+                  <button mat-button (click)="openRemoveUserDialog()">Change Theme?</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
           <div class="col-6" *ngFor="let product of availableCategory?.productCategory">
-            <div class="catogeryBox boxIndex"> 
-              <button mat-button  style="width:100%;">
-                <p class="mb-0">{{product.type | capitalize}}</p>
+            <div class="catogeryBox boxIndex">
+              <button mat-button style="width:100%;">
+                <b class="mb-0">{{product.type | capitalize}}</b>
               </button>
             </div>
           </div>
