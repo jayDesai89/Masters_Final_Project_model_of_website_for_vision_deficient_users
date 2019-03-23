@@ -1,0 +1,36 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+// Default Theme
+$custom-primary : mat-palette($mat-deep-purple, 600);
+$custom-accent: mat-palette($mat-pink, 100);
+
+$custome-theme: mat-light-theme($custom-primary, $custom-accent);
+@include angular-material-theme($custome-theme);
+
+
+// Red Theme
+// $altrnetRed-accent: mat-palette($mat-green);
+// $altrnetRed-warn: mat-palette($mat-red);
+$altrnetRed-primary: mat-palette($mat-red);
+$altrnetRed-accent: mat-palette($mat-red);
+$altrnetRed-theme: mat-light-theme($altrnetRed-primary, $altrnetRed-accent);
+.themeRed {
+  @include angular-material-theme($altrnetRed-theme);
+}
+
+// Blue Theme
+$altrnetBlue-primary: mat-palette($mat-blue);
+$altrnetBlue-accent: mat-palette($mat-blue);
+$altrnetBlue-theme: mat-light-theme($altrnetBlue-primary, $altrnetBlue-accent);
+.themeBlue {
+  @include angular-material-theme($altrnetBlue-theme);
+}
+
+// Green Theme
+$altrnetGreen-primary: mat-palette($mat-green);
+$altrnetGreen-accent: mat-palette($mat-green);
+$altrnetGreen-theme: mat-light-theme($altrnetGreen-primary, $altrnetGreen-accent);
+.themeGreen {
+  @include angular-material-theme($altrnetGreen-theme);
+}

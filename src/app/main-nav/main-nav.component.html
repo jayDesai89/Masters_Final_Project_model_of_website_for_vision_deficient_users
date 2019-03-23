@@ -1,8 +1,12 @@
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+<mat-sidenav-container class="sidenav-container" [ngClass]="{
+    'themeRed' : otherTheme === 'Red',
+    'themeBlue' : otherTheme === 'Blue',
+    'themeGreen' : otherTheme === 'Green'
+  }">
+  <mat-sidenav color="primary" #drawer class="sidenav" fixedInViewport="true" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)">
-    <mat-toolbar>Company</mat-toolbar>
-    <mat-nav-list>
+    <mat-toolbar color="primary">Company</mat-toolbar>
+    <mat-nav-list color="primary">
       <li [routerLinkActive]="'isActive'" class="list-group-item">
         <a [routerLink]="['/projectColors']" [routerLinkActive]="'isActive'">
           <span>Dashboard</span>
