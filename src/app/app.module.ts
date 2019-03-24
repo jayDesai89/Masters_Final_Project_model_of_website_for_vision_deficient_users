@@ -9,7 +9,18 @@ import { AppRoutingModule } from './/app-routing.module';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 // tslint:disable-next-line:max-line-length
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatFormFieldModule, MatInputModule, MatDialogModule, MatRadioModule } from '@angular/material';
+import {
+  MatToolbarModule,
+  MatButtonModule,
+  MatSidenavModule,
+  MatIconModule,
+  MatListModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatDialogModule,
+  MatRadioModule,
+  MatSelectModule
+} from '@angular/material';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { Browser } from 'protractor';
@@ -17,7 +28,7 @@ import { CapitalizePipe } from './common/pipes/capitalize.pipe';
 import { ProductdetailComponent } from './productdetail/productdetail.component';
 import { PaymentComponent } from './payment/payment.component';
 import { SelectproductComponent } from './selectproduct/selectproduct.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -46,6 +57,8 @@ import { FormsModule } from '@angular/forms';
     MatInputModule,
     MatDialogModule,
     MatRadioModule,
+    MatSelectModule,
+    ReactiveFormsModule,
     CommonModule
   ],
   entryComponents: [RemoveUserDialogBox],
@@ -59,7 +72,9 @@ import { FormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatInputModule,
     MatDialogModule,
-    MatRadioModule
+    MatSelectModule,
+    MatRadioModule,
+    ReactiveFormsModule
   ],
   providers: [
     CategoriesService
