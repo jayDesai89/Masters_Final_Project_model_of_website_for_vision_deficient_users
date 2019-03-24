@@ -15,6 +15,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   availableCategory;
   themeConfirmed;
   removeUserIsClicked: any;
+  otherTheme = false;
 
   constructor(private categories: CategoriesService,
     public dialog: MatDialog,
@@ -37,6 +38,9 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     // this.openRemoveUserDialog();
   }
+  changeTheme() {
+    this.otherTheme = !this.otherTheme;
+    }
   openRemoveUserDialog() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
@@ -70,7 +74,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 export class RemoveUserDialogBox {
   description: any;
   selectedTheme = '';
-  themes: string[] = ['Red-Green', 'Green-Blue', 'Blue-Red'];
+  themes: string[] = ['Red', 'Blue', 'Green'];
 
   constructor(
     public dialogRef: MatDialogRef<RemoveUserDialogBox>,

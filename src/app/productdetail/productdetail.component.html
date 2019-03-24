@@ -1,12 +1,67 @@
-<div class="row">
-          <div class="col-6">
+<div class="container-fluid mt-3">
+  <div class="row">
+    <div class="col-12">
+      <div class="dashboard">
+        <div class="row pageTitleRow">
+          <div class="col-lg-6 col-md-12">
             <div>
               <h4>Product Detail</h4>
             </div>
           </div>
-          <div class="col-6">
-            <div *ngIf="appTheme !== ''">
-              <h4>Slected theme : {{appTheme}}</h4>
+          <div class="col-lg-6 col-md-12">
+            <div class="row">
+              <div class="col-lg-8 col-md-12">
+                <div *ngIf="appTheme !== ''">
+                  <h4>Slected theme : {{appTheme}}</h4>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+        <!-- Product Discription  -->
+        <div class="row produtDiscription-Background">
+          <div class="col-lg-7 col-md-12">
+            <div class="bgImg"
+            [style.background]="backgroundColorValue.value"
+            [ngStyle]="{'background-image': 'url(' + backgroundPatternValue.value + ')'}">
+            <!-- we can do something like : url (../../value.png) -->
+              <h1>Product Image Here</h1>
+            </div>
+          </div>
+          <div class="col-lg-5 col-md-12">
+            <div>
+              <form action="" [formGroup]="backgroundColorsForm">
+                <!-- Select background color -->
+                <mat-form-field style="width: 100%">
+                  <mat-label>Try different background color</mat-label>
+                  <mat-select formControlName="backgroundColor">
+                    <mat-option *ngFor="let color of arrayOfBackgroundColors" [value]="color.value">
+                      {{color.viewValue}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <!-- Select background pattern -->
+                 <mat-form-field style="width: 100%">
+                  <mat-label>Try different background pattern</mat-label>
+                  <mat-select formControlName="backgroundPattern">
+                    <mat-option *ngFor="let pattern of arrayOfBackgroundPattern" [value]="pattern.value">
+                      {{pattern.viewValue}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- Product Feedback -->
+        <div class="row">
+          <div class="col-12">
+            <div>
+              <h1>Product Feedback</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
