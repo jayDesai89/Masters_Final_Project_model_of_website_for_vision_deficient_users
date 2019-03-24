@@ -21,29 +21,28 @@
         <!-- Product Discription  -->
         <div class="row produtDiscription-Background">
           <div class="col-lg-7 col-md-12">
-            <div class="bgImg" style="border: 1px solid red;"
+            <div class="bgImg"
             [style.background]="backgroundColorValue.value"
-            [ngStyle]="{background: 'url(backgroundPatternValue.value)'}">
+            [ngStyle]="{'background-image': 'url(' + backgroundPatternValue.value + ')'}">
             <!-- we can do something like : url (../../value.png) -->
               <h1>Product Image Here</h1>
-              <h3>
-                {{backgroundPatternValue.value}}
-              </h3>
             </div>
           </div>
           <div class="col-lg-5 col-md-12">
-            <div style="border: 1px solid red;">
+            <div>
               <form action="" [formGroup]="backgroundColorsForm">
+                <!-- Select background color -->
                 <mat-form-field style="width: 100%">
-                  <mat-label>Select background color</mat-label>
+                  <mat-label>Try different background color</mat-label>
                   <mat-select formControlName="backgroundColor">
                     <mat-option *ngFor="let color of arrayOfBackgroundColors" [value]="color.value">
                       {{color.viewValue}}
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
+                <!-- Select background pattern -->
                  <mat-form-field style="width: 100%">
-                  <mat-label>Select background pattern</mat-label>
+                  <mat-label>Try different background pattern</mat-label>
                   <mat-select formControlName="backgroundPattern">
                     <mat-option *ngFor="let pattern of arrayOfBackgroundPattern" [value]="pattern.value">
                       {{pattern.viewValue}}
