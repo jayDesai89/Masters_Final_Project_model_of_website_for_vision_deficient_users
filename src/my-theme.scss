@@ -14,7 +14,8 @@ $custome-theme: mat-light-theme($custom-primary, $custom-accent);
 // $altrnetRed-warn: mat-palette($mat-red);
 $altrnetRed-primary: mat-palette($mat-red);
 $altrnetRed-accent: mat-palette($mat-red);
-$altrnetRed-theme: mat-light-theme($altrnetRed-primary, $altrnetRed-accent);
+$altrnetRed-warn: mat-palette($mat-red);
+$altrnetRed-theme: mat-light-theme($altrnetRed-primary, $altrnetRed-accent, $altrnetRed-warn);
 .themeRed {
   @include angular-material-theme($altrnetRed-theme);
 }
@@ -22,7 +23,8 @@ $altrnetRed-theme: mat-light-theme($altrnetRed-primary, $altrnetRed-accent);
 // Blue Theme
 $altrnetBlue-primary: mat-palette($mat-blue);
 $altrnetBlue-accent: mat-palette($mat-blue);
-$altrnetBlue-theme: mat-light-theme($altrnetBlue-primary, $altrnetBlue-accent);
+$altrnetBlue-warn: mat-palette($mat-blue);
+$altrnetBlue-theme: mat-light-theme($altrnetBlue-primary, $altrnetBlue-accent, $altrnetBlue-warn);
 .themeBlue {
   @include angular-material-theme($altrnetBlue-theme);
 }
@@ -30,7 +32,8 @@ $altrnetBlue-theme: mat-light-theme($altrnetBlue-primary, $altrnetBlue-accent);
 // Green Theme
 $altrnetGreen-primary: mat-palette($mat-green);
 $altrnetGreen-accent: mat-palette($mat-green);
-$altrnetGreen-theme: mat-light-theme($altrnetGreen-primary, $altrnetGreen-accent);
+$altrnetGreen-warn: mat-palette($mat-green);
+$altrnetGreen-theme: mat-light-theme($altrnetGreen-primary, $altrnetGreen-accent, $altrnetGreen-warn);
 .themeGreen {
   @include angular-material-theme($altrnetGreen-theme);
 }

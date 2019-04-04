@@ -4,7 +4,7 @@
       <div class="dashboard">
         <div class="row pageTitleRow">
           <div class="col-lg-6 col-md-12">
-            <div >
+            <div>
               <h4>Dashboard</h4>
             </div>
           </div>
@@ -17,7 +17,7 @@
               </div>
               <div class="col-lg-4 col-md-12">
                 <div *ngIf="themeConfirmed !== ''">
-                  <button mat-raised-button color="primary" (click)="openRemoveUserDialog()">Change Theme?</button>
+                  <button mat-raised-button color="primary" (click)="openSelectThemeDialog()">Change Theme?</button>
                 </div>
               </div>
             </div>
@@ -25,11 +25,16 @@
         </div>
         <div class="row categoriesRow">
           <div class="col-lg-6 col-md-12" *ngFor="let product of availableCategory?.productCategory">
-            <div class="catogeryBox boxIndex" >
-              <button mat-button style="width:100%;" >
+            <div class="catogeryBox boxIndex">
+              <button mat-button style="width:100%;">
                 <b class="mb-0">{{product.type | capitalize}}</b>
               </button>
             </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6" style="text-align: center">
+            <div class="col-auto"><button color="primary" mat-raised-button (click)="goNext(2)">Next</button></div>
           </div>
         </div>
       </div>
