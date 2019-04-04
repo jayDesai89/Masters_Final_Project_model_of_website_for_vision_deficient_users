@@ -1,12 +1,22 @@
-<div class="row">
-          <div class="col-6">
-            <div>
-              <h4>Select Product</h4>
-            </div>
-          </div>
-          <div class="col-6">
-            <div *ngIf="appTheme !== ''">
-              <h4>Slected theme : {{appTheme}}</h4>
-            </div>
-          </div>
-        </div>
+<div>
+  <div class="row">
+    <div class="col-6">
+      <div>
+        <h4>Select Product</h4>
+      </div>
+    </div>
+    <div class="col-6">
+      <div *ngIf="appTheme !== ''">
+        <h4>Slected theme : {{appTheme}}</h4>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6" style="text-align: center">
+      <div class="col-auto"><button color="primary" mat-raised-button>Back</button></div>
+    </div>
+    <div class="col-6" style="text-align: center">
+      <div class="col-auto"><button color="primary" mat-raised-button>Next</button></div>
+    </div>
+  </div>
+</div>

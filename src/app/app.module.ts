@@ -4,7 +4,7 @@ import { NgModule, ApplicationModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import { DashboardComponent, RemoveUserDialogBox } from './dashboard/dashboard.component';
+import { DashboardComponent, SelectThemeDialogBox } from './dashboard/dashboard.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -26,7 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { Browser } from 'protractor';
 import { CapitalizePipe } from './common/pipes/capitalize.pipe';
 import { ProductdetailComponent } from './productdetail/productdetail.component';
-import { PaymentComponent } from './payment/payment.component';
+import { PaymentComponent, PreviewOrderDialogBox } from './payment/payment.component';
 import { SelectproductComponent } from './selectproduct/selectproduct.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -39,7 +39,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SelectproductComponent,
     ProductdetailComponent,
     PaymentComponent,
-    RemoveUserDialogBox
+    SelectThemeDialogBox,
+    PreviewOrderDialogBox
   ],
   imports: [
     HttpClientModule,
@@ -61,7 +62,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     CommonModule
   ],
-  entryComponents: [RemoveUserDialogBox],
+  entryComponents: [SelectThemeDialogBox, PreviewOrderDialogBox],
   exports: [
     CommonModule,
     MatToolbarModule,
