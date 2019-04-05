@@ -1,3 +1,4 @@
+import { ProductsService } from './../services/product/products.service';
 import { Component, OnInit } from '@angular/core';
 import { ThemeService } from '../services/theme/theme.service';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
@@ -43,7 +44,8 @@ export class ProductdetailComponent implements OnInit {
   get backgroundPatternValue() {
     return this.backgroundColorsForm.get('backgroundPattern');
   }
-  constructor(public theme: ThemeService) { }
+  displayDetailOfTshirt
+  constructor(public theme: ThemeService, public productsService: ProductsService) { }
 
   ngOnInit() {
     this.theme.themeOfApp.subscribe(res => this.appTheme = res);
@@ -51,6 +53,11 @@ export class ProductdetailComponent implements OnInit {
     this.backgroundColorsForm = new FormGroup({
       'backgroundColor': new FormControl(''),
       'backgroundPattern': new FormControl('')
+    });
+
+    this.productsService.getProductsForMen().subscribe((res) => {
+      this.displayDetailOfTshirt = res.menProducts.tshirt;
+      console.log(this.displayDetailOfTshirt);
     });
   }
 

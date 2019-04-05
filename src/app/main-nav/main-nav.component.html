@@ -14,33 +14,33 @@
         </h3>
       </div>
       <li [routerLinkActive]="'isActive'" class="list-group-item">
-        <a [routerLink]="['/projectColors']" [routerLinkActive]="'isActive'">
+        <a [routerLink]="['/projectColors']" [routerLinkActive]="'isActive'" aria-label="Dashboard_Page">
           <span>Dashboard</span>
         </a>
       </li>
       <li [routerLinkActive]="'isActive'" class="list-group-item">
-        <a [routerLink]="['/selectproduct']" [routerLinkActive]="'isActive'">
+        <a [routerLink]="['/selectproduct']" [routerLinkActive]="'isActive'" aria-label="Select_Product">
           <span>Select product</span>
         </a>
       </li>
       <li [routerLinkActive]="'isActive'" class="list-group-item">
-        <a [routerLink]="['/productdetail']" [routerLinkActive]="'isActive'">
+        <a [routerLink]="['/productdetail']" [routerLinkActive]="'isActive'" aria-label="Product_Detail">
           <span>Product Detail</span>
         </a>
       </li>
       <li [routerLinkActive]="'isActive'" class="list-group-item">
-        <a [routerLink]="['/payment']" [routerLinkActive]="'isActive'">
+        <a [routerLink]="['/payment']" [routerLinkActive]="'isActive'" aria-label="Payment">
           <span>Payment</span>
         </a>
       </li>
-       <div class="row">
+       <!-- <div class="row">
       <div class="col-12" style="margin: auto;text-align: center">
         <div>
           <button mat-raised-button class="mt-2">Reduce Font</button>
           <button mat-raised-button class="mt-2">Increase Font</button>
         </div>
       </div>
-    </div>
+    </div> -->
     </mat-nav-list>
    
   </mat-sidenav>
@@ -58,7 +58,9 @@
     </mat-toolbar> -->
     <!-- Add Content Here -->
     <ng-container>
-      <router-outlet></router-outlet>
+          <div class="container">
+            <router-outlet></router-outlet>
+          </div>
     </ng-container>
   </mat-sidenav-content>
 </mat-sidenav-container>

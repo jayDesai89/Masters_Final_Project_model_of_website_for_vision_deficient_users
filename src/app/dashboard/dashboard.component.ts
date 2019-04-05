@@ -1,9 +1,9 @@
 import { HandleroutingService } from './../services/routing/handlerouting.service';
 import { ThemeService } from './../services/theme/theme.service';
 import { Category } from './../model/categories';
-import { Component, OnInit, Inject, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Inject, AfterViewInit, ViewEncapsulation } from '@angular/core';
 import { CategoriesService } from '../services/category/categories.service';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig, MatTableDataSource, Sort } from '@angular/material';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig, MatTableDataSource, Sort, TooltipPosition } from '@angular/material';
 import { FormBuilder } from '@angular/forms';
 
 @Component({
@@ -29,6 +29,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.categories.getCategory().subscribe((res) => {
       this.availableCategory = res.categories;
+      console.log(this.availableCategory);
     });
     this.theme.themeOfApp.subscribe((res) => {
       this.themeConfirmed = res;
@@ -67,6 +68,11 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   goNext(nextPage) {
     this.handleRouting.getStepNumber(nextPage);
   }
+
+  selectedCategory(product) {
+     this.categories.getSelectedCategory(product);
+     this.goNext(2);
+  }
 }
 
 
@@ -75,7 +81,8 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   // tslint:disable-next-line:component-selector
   selector: 'themeSelect-dialog',
   templateUrl: 'themeSelectDialog.html',
-  styleUrls: ['dashboard.component.scss']
+  styleUrls: ['dashboard.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 
 // tslint:disable-next-line:component-class-suffix
@@ -83,6 +90,8 @@ export class SelectThemeDialogBox {
   description: any;
   selectedTheme = '';
   themes: string[] = ['Red', 'Blue', 'Green'];
+  // position: TooltipPosition = 'below';
+  showExtraClass = true;
 
   constructor(
     public dialogRef: MatDialogRef<SelectThemeDialogBox>,
