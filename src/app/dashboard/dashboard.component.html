@@ -1,7 +1,35 @@
-<div class="container-fluid mt-3">
+<div class="container-fluid pt-3 dashboard" [ngClass]="{'bgBlackWhite': isBWclicked,
+ 'bgBlackYellow': isBYclicked,
+  'bgYellowBlack': isYBclicked}">
+  <div class="row mb-3">
+    <div class="col-12">
+      <div class="utilityBar">
+        <div class="row">
+           <div class="col-4">
+          <div>
+            <button mat-raised-button (click)="isBWclicked = !isBWclicked">
+              Black & White <span *ngIf="isBWclicked"> : Active </span>
+            </button></div>
+        </div>
+        <div class="col-4">
+          <div>
+            <button mat-raised-button (click)="isBYclicked = !isBYclicked">
+              Black and Yellow <span *ngIf="isBYclicked"> : Active </span>
+            </button></div>
+        </div>
+        <div class="col-4">
+          <div>
+            <button mat-raised-button (click)="isYBclicked = !isYBclicked">
+              Yellow & Black <span *ngIf="isYBclicked"> : Active </span>
+            </button></div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="row">
     <div class="col-12">
-      <div class="dashboard">
+      <div>
         <div class="row pageTitleRow">
           <div class="col-lg-6 col-md-12">
             <div>
@@ -11,7 +39,7 @@
           <div class="col-lg-6 col-md-12">
             <div class="row">
               <div class="col-lg-8 col-md-12">
-                <div *ngIf="themeConfirmed !== ''" v>
+                <div *ngIf="themeConfirmed !== ''">
                   <h4>Slected theme : {{themeConfirmed}}</h4>
                 </div>
               </div>
@@ -26,8 +54,8 @@
         <div class="row categoriesRow">
           <div class="col-lg-6 col-md-12" *ngFor="let product of availableCategory?.productCategory">
             <div class="catogeryBox boxIndex">
-              <button mat-button style="width:100%;">
-                <b class="mb-0">{{product.type | capitalize}}</b>
+              <button mat-raised-button color="primary" style="width:100%;">
+                <strong class="mb-0">{{product.type | capitalize}}</strong>
               </button>
             </div>
           </div>

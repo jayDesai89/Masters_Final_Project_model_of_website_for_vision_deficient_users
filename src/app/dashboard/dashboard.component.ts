@@ -17,6 +17,9 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   themeConfirmed;
   removeUserIsClicked: any;
   otherTheme = false;
+  isBWclicked = false;
+  isBYclicked = false;
+  isYBclicked = false;
 
   constructor(private categories: CategoriesService,
     public dialog: MatDialog,

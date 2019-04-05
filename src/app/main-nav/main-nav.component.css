@@ -25,3 +25,9 @@
     font-weight: 900;
     color: purple;
   }
+
+ .mat-drawer {
+    background-color: white;
+    color: rgba(0, 0, 0, 0.87);
+    background-color: white;
+ }

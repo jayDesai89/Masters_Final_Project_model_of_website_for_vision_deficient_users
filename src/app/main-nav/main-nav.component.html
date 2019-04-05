@@ -1,11 +1,18 @@
 <mat-sidenav-container class="sidenav-container" [ngClass]="{
     'themeRed' : otherTheme === 'Red',
     'themeBlue' : otherTheme === 'Blue',
-    'themeGreen' : otherTheme === 'Green'
+    'themeGreen' : otherTheme === 'Green',
+    'bgblack' : blackWhiteSelected
   }">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="!(isHandset$ | async)">
     <mat-nav-list>
+      <div style="margin: auto">
+        <h3 class="pt-2 pb-2">
+          Sadak
+        </h3>
+      </div>
       <li [routerLinkActive]="'isActive'" class="list-group-item">
         <a [routerLink]="['/projectColors']" [routerLinkActive]="'isActive'">
           <span>Dashboard</span>
@@ -26,15 +33,29 @@
           <span>Payment</span>
         </a>
       </li>
+       <div class="row">
+      <div class="col-12" style="margin: auto;text-align: center">
+        <div>
+          <button mat-raised-button class="mt-2">Reduce Font</button>
+          <button mat-raised-button class="mt-2">Increase Font</button>
+        </div>
+      </div>
+    </div>
     </mat-nav-list>
+   
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
-      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+    <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+    <!-- <mat-toolbar>
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span class="ml-3">Project Color_699 by Piyu & Jay</span>
-    </mat-toolbar>
+    </mat-toolbar> -->
     <!-- Add Content Here -->
     <ng-container>
       <router-outlet></router-outlet>

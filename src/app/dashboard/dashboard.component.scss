@@ -1,8 +1,10 @@
 .mat-radio-button ~ .mat-radio-button {
   margin-left: 16px;
 }
+
 .dashboard {
   width: 100%;
+  height: -webkit-fill-available;
 
   .catogeryBox {
     border: 1px solid blue;
@@ -14,6 +16,5 @@
       color: black;
     }
   }
-
 }
 
