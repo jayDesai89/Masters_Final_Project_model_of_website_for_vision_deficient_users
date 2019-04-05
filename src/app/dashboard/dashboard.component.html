@@ -1,18 +1,47 @@
-<div class="container-fluid mt-3">
+<div class="container-fluid pt-3 dashboard" [ngClass]="{'bgBlackWhite': isBWclicked,
+ 'bgBlackYellow': isBYclicked,
+  'bgYellowBlack': isYBclicked}">
+  <div class="row mb-3">
+    <div class="col-12">
+      <div class="utilityBar">
+        <div class="row">
+          <div class="col-4">
+            <div>
+              <button mat-raised-button (click)="isBWclicked = !isBWclicked">
+                Black & White <span *ngIf="isBWclicked"> : Active </span>
+              </button></div>
+          </div>
+          <div class="col-4">
+            <div>
+              <button mat-raised-button (click)="isBYclicked = !isBYclicked">
+                Black and Yellow <span *ngIf="isBYclicked"> : Active </span>
+              </button></div>
+          </div>
+          <div class="col-4">
+            <div>
+              <button mat-raised-button (click)="isYBclicked = !isYBclicked">
+                Yellow & Black <span *ngIf="isYBclicked"> : Active </span>
+              </button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="row">
     <div class="col-12">
-      <div class="dashboard">
+      <div>
         <div class="row pageTitleRow">
           <div class="col-lg-6 col-md-12">
             <div>
-              <h4>Dashboard</h4>
+              <h3 aria-label="Title of the page">Dashboard- Please choose the category</h3>
             </div>
           </div>
           <div class="col-lg-6 col-md-12">
             <div class="row">
               <div class="col-lg-8 col-md-12">
-                <div *ngIf="themeConfirmed !== ''" v>
-                  <h4>Slected theme : {{themeConfirmed}}</h4>
+                <div *ngIf="themeConfirmed !== ''">
+                  <h3 aria-label="Selected Theme">Slected theme :
+                    {{themeConfirmed}}</h3>
                 </div>
               </div>
               <div class="col-lg-4 col-md-12">
@@ -23,19 +52,43 @@
             </div>
           </div>
         </div>
-        <div class="row categoriesRow">
-          <div class="col-lg-6 col-md-12" *ngFor="let product of availableCategory?.productCategory">
+        <div class="row categoriesRow mb-4">
+          <div class="col-lg-6 col-md-12 mb-4 centerThings" *ngFor="let product of availableCategory?.productCategory; let i = index">
             <div class="catogeryBox boxIndex">
-              <button mat-button style="width:100%;">
-                <b class="mb-0">{{product.type | capitalize}}</b>
+              <button class="categoryBt" mat-raised-button matTooltip="Find products for {{product.type}}"
+                aria-label="Button for category selction" matTooltipPosition="below" color="primary" (click)="selectedCategory(product)">
+                <div class="row">
+                  <div class="col-12">
+                    <div>
+                      <img style="width:35%;" src="../../assets/categoryImages/{{product.type}}.png"
+                        alt="category : {{product.type}}">
+                    </div>
+                  </div>
+                </div>
+                <div class="row mt-3">
+                  <div class="col-12">
+                    <h5 aria-label="Title of the catrgory">
+                      {{product.type | capitalize}}
+                    </h5>
+                  </div>
+                </div>
               </button>
             </div>
           </div>
+          <!-- <div class="col-12 mt-3" style="text-align:right" >
+            <div>
+              <button class="nextBtn" mat-raised-button (click)="goNext(2)" mat-raised-button matTooltip="Go to next page"
+                aria-label="Button for navigation to next page" matTooltipPosition="right" color="primary">Next</button>
+            </div>
+          </div> -->
         </div>
-        <div class="row">
-          <div class="col-6" style="text-align: center">
-            <div class="col-auto"><button color="primary" mat-raised-button (click)="goNext(2)">Next</button></div>
-          </div>
+        <div class="row mt-3 mb-5">
+          <!-- <div class="col-6 centerThings">
+            <div>
+              <button class="nextBtn" mat-raised-button (click)="goNext(2)" mat-raised-button matTooltip="Go to next page"
+                aria-label="Button for navigation to next page" matTooltipPosition="right" color="primary">Next</button>
+            </div>
+          </div> -->
         </div>
       </div>
     </div>

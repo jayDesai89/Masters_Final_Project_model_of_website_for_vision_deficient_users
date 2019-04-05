@@ -5,9 +5,54 @@
 
 html,
 body {
-    height: 100%;
+  height: 100%;
 }
 
 body {
-    margin: 0;
+  margin: 0;
+}
+
+
+button:hover {
+  border: 2px dotted red;
+}
+
+a {
+  border: 2px solid transparent;
+}
+a:hover {
+  border: 2px dotted red;
+}
+
+.centerThings {
+  text-align: center;
+  margin: auto;
+}
+
+.fullWidth {
+  width: 100%;
+}
+.nextBtn {
+  width: 50%;
+}
+
+.previouseBtn {
+  width: 50%;
+}
+.utilityBar {
+   /* // border: 1px solid red; */
+}
+.bgBlackWhite {
+  background-color: black;
+  color: white;
+}
+
+.bgBlackYellow {
+  background-color: black;
+  color: yellow;
+}
+
+.bgYellowBlack {
+  background-color: yellow;
+  color: black;
 }

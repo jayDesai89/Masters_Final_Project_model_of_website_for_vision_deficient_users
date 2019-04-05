@@ -1,7 +1,42 @@
 {
-    "menProducts": {
-        "shirts": [
-            
+  "menProducts": {
+    "availableProducts": [{
+        "type": "tshirt",
+        "id": 0
+      },
+      {
+        "type": "shirt",
+        "id": 1
+      },
+      {
+        "type": "pant",
+        "id": 2
+      },
+      {
+        "type": "blazer",
+        "id": 3
+      }
+    ],
+    "tshirt": [{
+        "productType": "tshirt",
+        "id": 1,
+        "companyName": "India",
+        "type": "India Men's Classic Jersey Graphic T-shirt",
+        "color": "Black",
+        "availableColor": ["Red", "Green", "Yellow", "Blue","Black"],
+        "availableSize": ["S", "M", "L", "XL", "XXL"],
+        "price": 20,
+        "discription": ["100% Cotton; Oxford Grey: 90% Cotton", "10% Polyester; Heather: 50% Cotton", "50% Polyester",
+          "Imported",
+          "Pull On closure",
+          "Machine Wash",
+          "Ring-spun cotton fabric for extra softness",
+          "Athletic fit for comfort",
+          "Narrow collar for a more modern fit",
+          "Left chest 'C' logo and C patch on sleeve",
+          "Available in solids and graphics"
         ]
-    }
+      }
+    ]
+  }
 }

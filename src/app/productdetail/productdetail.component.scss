@@ -2,3 +2,12 @@
     height: 100%;
     // background-image: url('../../assets/backgroundPatterns/stripe_1.png');
 }
+
+.availColors , .availSize{
+    border-right: 1px solid red;
+    margin-right: 2%;
+}
+
+.currentTshirt {
+    background-color: steelblue;
+}

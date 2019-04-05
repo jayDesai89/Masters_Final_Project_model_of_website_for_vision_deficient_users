@@ -1,70 +1,175 @@
-<div class="container-fluid mt-3">
+<div class="productDescription container-fluid mt-3" [ngClass]="{'bgBlackWhite': isBWclicked,
+ 'bgBlackYellow': isBYclicked,
+  'bgYellowBlack': isYBclicked}">
+  <div class="row mb-3">
+    <div class="col-12">
+      <div class="utilityBar">
+        <div class="row">
+          <div class="col-4">
+            <div>
+              <button mat-raised-button (click)="isBWclicked = !isBWclicked">
+                Black & White <span *ngIf="isBWclicked"> : Active </span>
+              </button></div>
+          </div>
+          <div class="col-4">
+            <div>
+              <button mat-raised-button (click)="isBYclicked = !isBYclicked">
+                Black and Yellow <span *ngIf="isBYclicked"> : Active </span>
+              </button></div>
+          </div>
+          <div class="col-4">
+            <div>
+              <button mat-raised-button (click)="isYBclicked = !isYBclicked">
+                Yellow & Black <span *ngIf="isYBclicked"> : Active </span>
+              </button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="row">
     <div class="col-12">
       <div class="dashboard">
         <div class="row pageTitleRow">
           <div class="col-lg-6 col-md-12">
             <div>
-              <h4>Product Detail</h4>
+              <h3 aria-label="Title of the page">Product Detail</h3>
             </div>
           </div>
           <div class="col-lg-6 col-md-12">
             <div class="row">
               <div class="col-lg-8 col-md-12">
                 <div *ngIf="appTheme !== ''">
-                  <h4>Slected theme : {{appTheme}}</h4>
+                  <h4 aria-label="Selected Theme">Slected theme : {{appTheme}}</h4>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <!-- Product Discription  -->
-        <div class="row produtDiscription-Background">
-          <div class="col-lg-7 col-md-12">
-            <div class="bgImg" [style.background]="backgroundColorValue.value"
-              [ngStyle]="{'background-image': 'url(' + backgroundPatternValue.value + ')'}">
-              <!-- we can do something like : url (../../value.png) -->
-              <h1>Product Image Here</h1>
+        <ng-container *ngFor="let productDetail of displayDetailOfTshirt">
+          <div class="row produtDiscription-Background">
+            <div class="col-lg-7 col-md-12 centerThings">
+              <div class="bgImg" [style.background]="backgroundColorValue.value"
+                [ngStyle]="{'background-image': 'url(' + backgroundPatternValue.value + ')'}">
+                <img style="width:40%" src="../../assets/productImages/men/{{productDetail.productType}}.png"
+                  alt="Image of selected product">
+              </div>
+            </div>
+            <div class="col-lg-5 col-md-12">
+              <div>
+                <form action="" [formGroup]="backgroundColorsForm">
+                  <!-- Select background color -->
+                  <mat-form-field class="fullWidth">
+                    <mat-label>Try different background color</mat-label>
+                    <mat-select formControlName="backgroundColor">
+                      <mat-option *ngFor="let color of arrayOfBackgroundColors" [value]="color.value">
+                        {{color.viewValue}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <!-- Select background pattern -->
+                  <mat-form-field class="fullWidth">
+                    <mat-label>Try different background pattern</mat-label>
+                    <mat-select formControlName="backgroundPattern">
+                      <mat-option *ngFor="let pattern of arrayOfBackgroundPattern" [value]="pattern.value">
+                        {{pattern.viewValue}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </form>
+              </div>
+              <div class="row mb-3">
+                <div class="col-5">
+                  <strong>
+                    Available colors:
+                  </strong>
+                </div>
+                <div class="col-7">
+                  <span class="availColors" *ngFor="let color of productDetail.availableColor"
+                    [ngClass]="color === productDetail.color ? 'currentTshirt': 'none'">
+                    {{color}}
+                  </span>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col-5">
+                  <strong>
+                    Available size:
+                  </strong>
+                </div>
+                <div class="col-7">
+                  <span class="availSize" *ngFor="let size of productDetail.availableSize">
+                    {{size}}
+                  </span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <ul *ngFor="let description of productDetail.discription">
+                    <li class="mb-0"> {{description}} </li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="col-lg-5 col-md-12">
-            <div>
-              <form action="" [formGroup]="backgroundColorsForm">
-                <!-- Select background color -->
-                <mat-form-field style="width: 100%">
-                  <mat-label>Try different background color</mat-label>
-                  <mat-select formControlName="backgroundColor">
-                    <mat-option *ngFor="let color of arrayOfBackgroundColors" [value]="color.value">
-                      {{color.viewValue}}
-                    </mat-option>
-                  </mat-select>
-                </mat-form-field>
-                <!-- Select background pattern -->
-                <mat-form-field style="width: 100%">
-                  <mat-label>Try different background pattern</mat-label>
-                  <mat-select formControlName="backgroundPattern">
-                    <mat-option *ngFor="let pattern of arrayOfBackgroundPattern" [value]="pattern.value">
-                      {{pattern.viewValue}}
-                    </mat-option>
-                  </mat-select>
-                </mat-form-field>
-              </form>
+          <!-- Product Feedback -->
+          <div class="row">
+            <div class="col-12">
+              <div>
+                <h1>Product Feedback</h1>
+              </div>
+              <!-- Feedback here -->
+              <div class="row">
+                <div class="col-12">
+                  <div>
+                    <div class="row">
+                      <div class="col-12">
+                        <div>
+                          Priyanka Shah
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12">
+                        <div>
+                          <p>
+                            September 9, 2018
+                          </p>
+                          <div>
+                            <span>Size: Medium</span>
+                            <span> Color: Kelly Green/Champion Script 3 Peat</span>
+                            <span>Verified Purchase</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12">
+                        <div>
+                          <p>
+                            Very happy with this Champion shirt and it’s quality.
+                            The color and quality are fantastic! Price is great!
+                            It is going to feel really nice wearing my CHAMPION shirt as I stand for the National
+                            Anthem.
+                            Thanks for the quick shipping, great quality, and for being a dependable and ethical
+                            company.
+                            Love Champion brand!!
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <!-- Product Feedback -->
+        </ng-container>
         <div class="row">
-          <div class="col-12">
-            <div>
-              <h1>Product Feedback</h1>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-6" style="text-align: center">
+          <div class="col-6 centerThings">
             <div class="col-auto"><button color="primary" mat-raised-button>Back</button></div>
           </div>
-          <div class="col-6" style="text-align: center">
+          <div class="col-6 centerThings">
             <div class="col-auto"><button color="primary" mat-raised-button>Next</button></div>
           </div>
         </div>

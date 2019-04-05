@@ -19,7 +19,8 @@ import {
   MatInputModule,
   MatDialogModule,
   MatRadioModule,
-  MatSelectModule
+  MatSelectModule,
+  MatTooltipModule
 } from '@angular/material';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
@@ -59,6 +60,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatDialogModule,
     MatRadioModule,
     MatSelectModule,
+    MatTooltipModule,
     ReactiveFormsModule,
     CommonModule
   ],
@@ -75,6 +77,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatDialogModule,
     MatSelectModule,
     MatRadioModule,
+    MatTooltipModule,
     ReactiveFormsModule
   ],
   providers: [

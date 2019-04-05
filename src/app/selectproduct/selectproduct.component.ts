@@ -1,3 +1,5 @@
+import { ProductsService } from './../services/product/products.service';
+import { CategoriesService } from './../services/category/categories.service';
 import { Component, OnInit } from '@angular/core';
 import { ThemeService } from '../services/theme/theme.service';
 
@@ -8,10 +10,26 @@ import { ThemeService } from '../services/theme/theme.service';
 })
 export class SelectproductComponent implements OnInit {
   appTheme;
-  constructor(public theme: ThemeService) { }
+  showSelectedCategory;
+  isBWclicked = false;
+  isBYclicked = false;
+  isYBclicked = false;
+  products;
+  constructor(public theme: ThemeService,
+  private categoryService: CategoriesService,
+  private productsService: ProductsService) { }
 
   ngOnInit() {
     this.theme.themeOfApp.subscribe(res => this.appTheme = res);
+    this.categoryService.checkcategorySelected.subscribe((res) => {
+      this.showSelectedCategory = res;
+    });
+
+    this.productsService.getProductsForMen().subscribe((res) => {
+      console.log(res);
+      this.products = res.menProducts;
+      console.log(this.products.menProducts);
+    });
   }
 
 }

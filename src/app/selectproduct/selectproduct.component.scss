@@ -1,0 +1,32 @@
+@import '../../styles.css';
+
+button {
+  border: 2px solid transparent;
+}
+
+button:hover {
+  border: 2px dotted red;
+}
+
+.selectedProduct {
+  width: 100%;
+  height: -webkit-fill-available;
+
+  .productBox {
+    border-radius: 7px;
+    cursor: pointer;
+    margin: 3%;
+  }
+
+}
+
+
+::ng-deep .mat-tooltip {
+  /* your own custom styles here */
+  /* e.g. */
+  background-color: black !important;
+  color: yellow !important;
+  padding: 2%;
+  font-size: 15px;
+  width: fit-content;
+}
