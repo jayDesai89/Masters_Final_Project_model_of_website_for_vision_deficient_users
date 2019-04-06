@@ -7,19 +7,25 @@
         <div class="row">
           <div class="col-4">
             <div>
-              <button mat-raised-button (click)="isBWclicked = !isBWclicked">
+              <button mat-raised-button (click)="isBWclicked = !isBWclicked"
+                matTooltip="Background: Black , Text: white" class="bgBlackWhite" aria-label="Button for black and white contras"
+                matTooltipPosition="right">
                 Black & White <span *ngIf="isBWclicked"> : Active </span>
               </button></div>
           </div>
           <div class="col-4">
             <div>
-              <button mat-raised-button (click)="isBYclicked = !isBYclicked">
+              <button mat-raised-button (click)="isBYclicked = !isBYclicked"
+                matTooltip="Background: Black , Text: Yellow" class="bgBlackYellow"
+                aria-label="Button for black and yellow contras" matTooltipPosition="right" >
                 Black and Yellow <span *ngIf="isBYclicked"> : Active </span>
               </button></div>
           </div>
           <div class="col-4">
             <div>
-              <button mat-raised-button (click)="isYBclicked = !isYBclicked">
+              <button mat-raised-button (click)="isYBclicked = !isYBclicked"
+                matTooltip="Background: Yellow , Text: Black" class="bgYellowBlack"
+                aria-label="Button for yellow and black contras" matTooltipPosition="right" >
                 Yellow & Black <span *ngIf="isYBclicked"> : Active </span>
               </button></div>
           </div>
@@ -33,7 +39,7 @@
         <div class="row pageTitleRow">
           <div class="col-lg-6 col-md-12">
             <div>
-              <h3 aria-label="Title of the page">Select Category : {{showSelectedCategory?.type | capitalize}}</h3>
+              <h3 aria-label="Title of the page">Products for {{showSelectedCategory?.type | capitalize}}</h3>
             </div>
           </div>
           <div class="col-lg-6 col-md-12">
@@ -47,7 +53,7 @@
             <div class="productBox boxIndex">
               <button class="categoryBt" mat-raised-button matTooltip="Click to find detail about {{product.type}}"
                  aria-label="Button for category selction"
-                matTooltipPosition="below" color="primary">
+                matTooltipPosition="below" color="primary" (click)="goNext(3)">
                 <div class="row">
                   <div class="col-12">
                     <div>
@@ -69,17 +75,17 @@
           <!-- <div class="col-12 mt-3" style="text-align:right" >
             <div>
               <button class="nextBtn" mat-raised-button (click)="goNext(2)" mat-raised-button matTooltip="Go to next page"
-                aria-label="Button for navigation to next page" matTooltipPosition="right" color="primary">Next</button>
+                aria-label="Button for navigation to next page" matTooltipPosition="right" >Next</button>
             </div>
           </div> -->
         </div>
         <div class="row mt-3 mb-5">
-          <!-- <div class="col-6 centerThings">
+          <div class="col-6 centerThings">
             <div>
-              <button class="nextBtn" mat-raised-button (click)="goNext(2)" mat-raised-button matTooltip="Go to next page"
-                aria-label="Button for navigation to next page" matTooltipPosition="right" color="primary">Next</button>
+              <button class="nextBtn" mat-raised-button (click)="goNext(1)" color="primary" mat-raised-button matTooltip="Go to previous page"
+                aria-label="Button for navigation to previous page" matTooltipPosition="below" >Previous</button>
             </div>
-          </div> -->
+          </div>
         </div>
       </div>
     </div>

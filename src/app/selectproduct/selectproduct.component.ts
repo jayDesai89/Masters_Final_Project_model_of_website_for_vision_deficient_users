@@ -1,3 +1,4 @@
+import { HandleroutingService } from './../services/routing/handlerouting.service';
 import { ProductsService } from './../services/product/products.service';
 import { CategoriesService } from './../services/category/categories.service';
 import { Component, OnInit } from '@angular/core';
@@ -17,7 +18,8 @@ export class SelectproductComponent implements OnInit {
   products;
   constructor(public theme: ThemeService,
   private categoryService: CategoriesService,
-  private productsService: ProductsService) { }
+  private productsService: ProductsService,
+  private handleRouting: HandleroutingService) { }
 
   ngOnInit() {
     this.theme.themeOfApp.subscribe(res => this.appTheme = res);
@@ -32,4 +34,7 @@ export class SelectproductComponent implements OnInit {
     });
   }
 
+  goNext(nextPage) {
+    this.handleRouting.getStepNumber(nextPage);
+  }
 }

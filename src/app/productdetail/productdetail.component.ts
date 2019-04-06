@@ -1,3 +1,4 @@
+import { HandleroutingService } from './../services/routing/handlerouting.service';
 import { ProductsService } from './../services/product/products.service';
 import { Component, OnInit } from '@angular/core';
 import { ThemeService } from '../services/theme/theme.service';
@@ -31,8 +32,8 @@ export class ProductdetailComponent implements OnInit {
     { value: 'blue', viewValue: 'Blue' }
   ];
   arrayOfBackgroundPattern: ArrayOfBackgroundPattern[] = [
-    { value: '../../assets/backgroundPatterns/stripe_1.png', viewValue: 'Pattern_1'},
-    { value: '../../assets/backgroundPatterns/stripe_2.png', viewValue: 'Pattern_2'}
+    { value: '../../assets/backgroundPatterns/stripe_1.png', viewValue: 'Pattern_1' },
+    { value: '../../assets/backgroundPatterns/stripe_2.png', viewValue: 'Pattern_2' }
   ];
   // Form selections and this can be used for "gather data" and then use this as database.
   backgroundColorsForm;
@@ -44,8 +45,12 @@ export class ProductdetailComponent implements OnInit {
   get backgroundPatternValue() {
     return this.backgroundColorsForm.get('backgroundPattern');
   }
-  displayDetailOfTshirt
-  constructor(public theme: ThemeService, public productsService: ProductsService) { }
+  isBWclicked = false;
+  isBYclicked = false;
+  isYBclicked = false;
+  displayDetailOfTshirt;
+  constructor(public theme: ThemeService, public productsService: ProductsService,
+  private handleRouting: HandleroutingService ) { }
 
   ngOnInit() {
     this.theme.themeOfApp.subscribe(res => this.appTheme = res);
@@ -61,4 +66,7 @@ export class ProductdetailComponent implements OnInit {
     });
   }
 
+   goNext(nextPage) {
+    this.handleRouting.getStepNumber(nextPage);
+  }
 }

@@ -12,8 +12,14 @@ export class HandleroutingService {
 
   getStepNumber(pageNum) {
     console.log(pageNum);
-    if (pageNum === 2) {
+    if  (pageNum === 1) {
+      this.router.navigate(['/projectColors']);
+    } else if (pageNum === 2) {
       this.router.navigate(['/selectproduct']);
+    } else if (pageNum === 3) {
+      this.router.navigate(['/productdetail']);
+    } else if (pageNum === 4) {
+      this.router.navigate(['/payment']);
     }
   }
 }
