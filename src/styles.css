@@ -32,15 +32,22 @@ a:hover {
 .fullWidth {
   width: 100%;
 }
-.nextBtn {
+.nextBtn , .previousBtn{
   width: 50%;
+  padding: 2%;
 }
 
-.previouseBtn {
+/* .previouseBtn {
   width: 50%;
-}
+  padding
+} */
 .utilityBar {
    /* // border: 1px solid red; */
+   margin: auto;
+   text-align: center;
+   padding-top: 1%;
+   padding-bottom: 2%;
+   border-bottom: 7px double blue;
 }
 .bgBlackWhite {
   background-color: black;

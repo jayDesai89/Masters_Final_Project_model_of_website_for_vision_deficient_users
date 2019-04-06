@@ -1,3 +1,5 @@
+import { ProductsService } from './../services/product/products.service';
+import { HandleroutingService } from './../services/routing/handlerouting.service';
 import { Component, OnInit, Inject } from '@angular/core';
 import { ThemeService } from '../services/theme/theme.service';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
@@ -11,28 +13,32 @@ import { MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig, MatDialog } from '@angu
 export class PaymentComponent implements OnInit {
   appTheme;
   paymentForm;
+  isBWclicked = false;
+  isBYclicked = false;
+  isYBclicked = false;
+  orderedTshirt;
   get billingFirstName() {
     return this.paymentForm.get('billingInfo.firstName');
   }
-   get billingLastName() {
+  get billingLastName() {
     return this.paymentForm.get('billingInfo.lastName');
   }
-   get billingAddLineOne() {
+  get billingAddLineOne() {
     return this.paymentForm.get('billingAddress.addressLine1');
   }
-   get billingAddCity() {
+  get billingAddCity() {
     return this.paymentForm.get('billingAddress.city');
   }
-   get billingAddState() {
+  get billingAddState() {
     return this.paymentForm.get('billingAddress.state');
   }
-   get billingAddCountry() {
+  get billingAddCountry() {
     return this.paymentForm.get('billingAddress.country');
   }
-   get billingAddZip() {
+  get billingAddZip() {
     return this.paymentForm.get('billingAddress.zip');
   }
-   get billingcardHolderName() {
+  get billingcardHolderName() {
     return this.paymentForm.get('paymentMethod.cardHolderName');
   }
   get billingcardHolderNumber() {
@@ -41,14 +47,18 @@ export class PaymentComponent implements OnInit {
   get billingcardHolderCvv() {
     return this.paymentForm.get('paymentMethod.cvvNumber');
   }
-  constructor(public theme: ThemeService, private formBuilder: FormBuilder, public dialog: MatDialog) { }
+  constructor(public theme: ThemeService,
+  private formBuilder: FormBuilder,
+  public dialog: MatDialog,
+  private handleRouting: HandleroutingService,
+  private productsService: ProductsService) { }
 
   ngOnInit() {
     this.theme.themeOfApp.subscribe(res => this.appTheme = res);
-       this.paymentForm = this.formBuilder.group({
+    this.paymentForm = this.formBuilder.group({
       'billingInfo': new FormGroup({
-        'firstName' : new FormControl('', [Validators.required]),
-        'lastName' : new FormControl('', Validators.required)
+        'firstName': new FormControl('', [Validators.required]),
+        'lastName': new FormControl('', Validators.required)
       }),
       'billingAddress': new FormGroup({
         'addressLine1': new FormControl('', Validators.required),
@@ -63,6 +73,10 @@ export class PaymentComponent implements OnInit {
         'cardNumber': new FormControl('', Validators.required),
         'cvvNumber': new FormControl('', Validators.required),
       })
+    });
+
+     this.productsService.getProductsForMen().subscribe((res) => {
+      this.orderedTshirt = res.menProducts.tshirt;
     });
   }
 
@@ -82,11 +96,11 @@ export class PaymentComponent implements OnInit {
     });
   }
 
-    validateAllFormFields(formGroup: FormGroup) {
+  validateAllFormFields(formGroup: FormGroup) {
     Object.keys(formGroup.controls).forEach(field => {
       const control = formGroup.get(field);
       if (control instanceof FormControl) {
-        control.markAsTouched({onlySelf: true});
+        control.markAsTouched({ onlySelf: true });
       } else if (control instanceof FormGroup) {
         this.validateAllFormFields(control);
       }
@@ -101,6 +115,9 @@ export class PaymentComponent implements OnInit {
     console.log(this.paymentForm.value);
   }
 
+  goNext(nextPage) {
+    this.handleRouting.getStepNumber(nextPage);
+  }
 }
 
 

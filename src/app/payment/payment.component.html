@@ -1,4 +1,38 @@
-<div class="container-fluid mt-3">
+<div class="container-fluid mt-3" class="productDescription container-fluid mt-3" [ngClass]="{'bgBlackWhite': isBWclicked,
+ 'bgBlackYellow': isBYclicked,
+  'bgYellowBlack': isYBclicked}">
+  <div class="row mb-3">
+    <div class="col-12">
+      <div class="utilityBar">
+        <div class="row">
+          <div class="col-4">
+            <div>
+              <button mat-raised-button (click)="isBWclicked = !isBWclicked"
+                matTooltip="Background: Black , Text: white" class="bgBlackWhite"
+                aria-label="Button for black and white contras" matTooltipPosition="right">
+                Black & White <span *ngIf="isBWclicked"> : Active </span>
+              </button></div>
+          </div>
+          <div class="col-4">
+            <div>
+              <button mat-raised-button (click)="isBYclicked = !isBYclicked"
+                matTooltip="Background: Black , Text: Yellow" class="bgBlackYellow"
+                aria-label="Button for black and yellow contras" matTooltipPosition="right">
+                Black and Yellow <span *ngIf="isBYclicked"> : Active </span>
+              </button></div>
+          </div>
+          <div class="col-4">
+            <div>
+              <button mat-raised-button (click)="isYBclicked = !isYBclicked"
+                matTooltip="Background: Yellow , Text: Black" class="bgYellowBlack"
+                aria-label="Button for yellow and black contras" matTooltipPosition="right">
+                Yellow & Black <span *ngIf="isYBclicked"> : Active </span>
+              </button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="row">
     <div class="col-6">
       <div>
@@ -12,12 +46,15 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-7">
+    <div class="col-lg-7 col-md-7 col-sm-12">
       <div>
         <div class="row">
           <div class="col-12">
             <div>
-              <form action="" [formGroup]="paymentForm">
+              <!--  [ngClass]="isBWclicked || isBYclicked || isYBclicked ? 'formFieldBG' : 'none'" -->
+              <form action="" [formGroup]="paymentForm" [ngClass]="{'bgBlackWhite': isBWclicked,
+ 'bgBlackYellow': isBYclicked,
+  'bgYellowBlack': isYBclicked}">
                 <form action="" formGroupName="billingInfo">
                   <div>
                     <mat-form-field appearance="fill">
@@ -88,43 +125,76 @@
 
           </div>
         </div>
-
+        <div class="row mt-4 mb-5">
+          <div class="col-6 centerThings">
+            <div class="col-auto"><button class="nextBtn" (click)="goNext(3)" color="primary" mat-raised-button
+                matTooltip="Go to next page" aria-label="Button for navigation to previous page"
+                matTooltipPosition="right">Back</button></div>
+          </div>
+          <div class="col-6 centerThings">
+            <div class="col-auto"><button class="previousBtn" color="primary" mat-raised-button
+                matTooltip="Go to next page" aria-label="Button for navigation to next page" matTooltipPosition="right"
+                (click)="submit()">Submit</button></div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="col-5">
-      <div style="border: 1px solid red">
-        <div class="row">
+    <div class="col-lg-5 col-md-5 col-sm-12">
+      <div class="sideDiv" *ngFor="let item of orderedTshirt" [ngClass]="{'bgBlackWhite': isBWclicked,
+ 'bgBlackYellow': isBYclicked,
+  'bgYellowBlack': isYBclicked}">
+        <div class="row sideBarRow">
           <div class="col-6">
             <div><strong>
-                Product
+                Slected item
               </strong></div>
           </div>
           <div class="col-6">
             <div><span>
-                Danim pants
+                {{item.type}}
+              </span></div>
+          </div>
+        </div>
+        <div class="row sideBarRow">
+          <div class="col-6">
+            <div><strong>
+                Quantity
+              </strong></div>
+          </div>
+          <div class="col-6">
+            <div><span>
+                1
+              </span></div>
+          </div>
+        </div>
+        <div class="row sideBarRow">
+          <div class="col-6">
+            <div><strong>
+                Color
+              </strong></div>
+          </div>
+          <div class="col-6">
+            <div><span>
+                {{item.color}}
+              </span></div>
+          </div>
+        </div>
+        <div class="row sideBarRow totalRow">
+          <div class="col-12">
+            <div class="borderDiv"></div>
+          </div>
+          <div class="col-6">
+            <div><strong>
+                Total
+              </strong></div>
+          </div>
+          <div class="col-6">
+            <div><span>
+                {{item.price | currency }}
               </span></div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="row  mb-4">
-    <div class="col-6" style="text-align: center">
-      <div class="col-auto"><button color="primary" color="primary" mat-raised-button>Back</button></div>
-    </div>
-    <div class="col-6" style="text-align: center">
-      <div class="col-auto"> <button color="primary" mat-raised-button (click)="submit()">
-          Submit
-        </button></div>
-    </div>
-  </div>
-  <!-- <div class="row mb-4">
-    <div class="col-12">
-      <div class="col-auto">
-        <button color="primary" mat-raised-button (click)="submit()">
-          Submit
-        </button>
-      </div>
-    </div>
-  </div> -->
 </div>

@@ -1,13 +1,97 @@
+@import '../../styles.css';
+
 .bgImg {
-    height: 100%;
-    // background-image: url('../../assets/backgroundPatterns/stripe_1.png');
+  height: 100%;
+  // background-image: url('../../assets/backgroundPatterns/stripe_1.png');
 }
 
-.availColors , .availSize{
-    border-right: 1px solid red;
-    margin-right: 2%;
+mat-form-field {
+  width: 100%;
+  margin-bottom: 3%;
+}
+
+.availColors,
+.availSize {
+  border-right: 1px solid red;
+  padding-right: 2%;
+  padding-left: 2%;
+}
+
+button {
+  border: 2px solid transparent;
+}
+
+button:hover {
+  border: 2px dotted red;
 }
 
 .currentTshirt {
-    background-color: steelblue;
+  background-color: steelblue;
+}
+
+.bgBlackWhite {
+  background-color: black;
+  color: white;
+
+  mat-form-field {
+    background-color: white;
+    color: black;
+    border-radius: 7px;
+  }
+
+  /deep/ mat-label {
+    color: black;
+  }
+
+  /deep/ mat-error {
+    color: red;
+  }
+}
+
+.bgBlackYellow {
+  background-color: black;
+  color: yellow;
+
+  mat-form-field {
+    background-color: yellow;
+    color: black;
+    border-radius: 7px;
+  }
+
+  mat-label {
+    color: black
+  }
+
+  mat-error {
+    color: red;
+  }
+}
+
+.bgYellowBlack {
+  background-color: yellow;
+  color: black;
+
+  mat-form-field {
+    background-color: black;
+    color: white;
+    border-radius: 7px;
+  }
+
+  mat-label {
+    color: white;
+  }
+
+  mat-error {
+    color: red;
+  }
+}
+
+
+::ng-deep .mat-tooltip {
+  /* your own custom styles here */
+  /* e.g. */
+  background-color: black !important;
+  color: yellow !important;
+  padding: 2%;
+  font-size: 15px;
 }
