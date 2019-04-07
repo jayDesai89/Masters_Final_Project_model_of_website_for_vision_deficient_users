@@ -1,6 +1,9 @@
 <div class="container-fluid pt-3 selectedProduct" [ngClass]="{'bgBlackWhite': isBWclicked,
  'bgBlackYellow': isBYclicked,
-  'bgYellowBlack': isYBclicked}">
+  'bgYellowBlack': isYBclicked,
+  'redThemeClass': appTheme === 'Red',
+  'blueThemeClass': appTheme === 'Blue',
+  'greenThemeClass': appTheme === 'Green'}">
   <div class="row mb-3">
     <div class="col-12">
       <div class="utilityBar">
@@ -44,7 +47,7 @@
           </div>
           <div class="col-lg-6 col-md-12">
             <div *ngIf="appTheme !== ''">
-              <h4>Slected theme : {{appTheme}}</h4>
+              <h4>Selected theme : {{appTheme}}</h4>
             </div>
           </div>
         </div>

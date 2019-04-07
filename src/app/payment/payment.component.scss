@@ -4,6 +4,9 @@ mat-form-field {
   width: 100%;
   margin-bottom: 3%;
 }
+ /deep/ mat-error {
+    color: red;
+  }
 
 button {
   border: 2px solid transparent;
@@ -25,9 +28,7 @@ button:hover {
   /deep/ mat-label {
       color: black;
   }
-  /deep/ mat-error {
-    color: red;
-  }
+  
 }
 
 .bgBlackYellow {
@@ -51,7 +52,7 @@ button:hover {
   color: black;
   mat-form-field {
     background-color: black;
-    color: white;
+    color: orange;
     border-radius: 7px;
   }
     mat-label {
@@ -64,6 +65,8 @@ button:hover {
 
 .sideDiv {
   background-color: lightgrey;
+  border-radius: 7px;
+  padding: 3%;
   .sideBarRow {
   margin: 2% 0 2% 0;
 }
@@ -80,6 +83,12 @@ button:hover {
 }
 }
 
+.errorDiv {
+  color: red;
+  font-size: larger;
+  font-weight: bolder;
+}
+
 ::ng-deep .mat-tooltip {
   /* your own custom styles here */
   /* e.g. */
@@ -89,3 +98,4 @@ button:hover {
   font-size: 15px;
 }
 
+@import '../../themeBasedStyle';

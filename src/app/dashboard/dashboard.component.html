@@ -1,6 +1,9 @@
 <div class="container-fluid pt-3 dashboard" [ngClass]="{'bgBlackWhite': isBWclicked,
  'bgBlackYellow': isBYclicked,
-  'bgYellowBlack': isYBclicked}">
+  'bgYellowBlack': isYBclicked,
+  'redThemeClass': themeConfirmed === 'Red',
+  'blueThemeClass': themeConfirmed === 'Blue',
+  'greenThemeClass': themeConfirmed === 'Green'}" >
   <div class="row mb-3">
     <div class="col-12">
       <div class="utilityBar">
@@ -46,13 +49,13 @@
             <div class="row">
               <div class="col-lg-8 col-md-12">
                 <div *ngIf="themeConfirmed !== ''">
-                  <h3 aria-label="Selected Theme">Slected theme :
+                  <h3 aria-label="Selected Theme">Selected theme :
                     {{themeConfirmed}}</h3>
                 </div>
               </div>
               <div class="col-lg-4 col-md-12">
                 <div *ngIf="themeConfirmed !== ''">
-                  <button mat-raised-button color="primary" (click)="openSelectThemeDialog()">Change Theme?</button>
+                  <button mat-raised-button color="primary" class="themeChangeBtn" (click)="openSelectThemeDialog()">Change Theme?</button>
                 </div>
               </div>
             </div>

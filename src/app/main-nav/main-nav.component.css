@@ -1,10 +1,11 @@
+@import '../../styles.css';
 
 .sidenav-container {
   height: 100%;
 }
 
 .sidenav {
-  width: 200px;
+  width: 270px;
 }
 
 .sidenav .mat-toolbar {
@@ -19,15 +20,41 @@
 
 
 .list-group-item.isActive {
-  border-left:5px solid purple;
+  border-left: 5px solid purple;
+  font-weight: bolder;
+  font-size: larger;
 }
-  a .isActive{   
-    font-weight: 900;
-    color: purple;
-  }
 
- .mat-drawer {
-    background-color: white;
-    color: rgba(0, 0, 0, 0.87);
-    background-color: white;
- }
+/* a .isActive {
+  font-weight: 900;f
+  color: purple;
+} */
+
+.mat-drawer {
+  background-color: white;
+  color: rgba(0, 0, 0, 0.87);
+  background-color: white;
+}
+
+.sidebarGreen li {
+  background-color: #388E3C;
+  color: #000000;
+}
+
+.sidebarRed li {
+  background-color: #d50000;
+  color: white;
+}
+
+.sidebarBlue li {
+  background-color: #2196F3;
+  color: #000000;
+}
+
+
+a:hover {
+    background: black;
+    color: white;
+}
+
+@import '../../themeBasedStyle';

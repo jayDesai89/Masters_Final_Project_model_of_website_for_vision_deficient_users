@@ -31,7 +31,7 @@ button:hover {
 
 .bgBlackWhite {
   background-color: black;
-  color: white;
+  color: yellowgreen;
 
   mat-form-field {
     background-color: white;
@@ -95,3 +95,5 @@ button:hover {
   padding: 2%;
   font-size: 15px;
 }
+
+@import '../../themeBasedStyle';

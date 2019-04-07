@@ -2,15 +2,17 @@
     'themeRed' : otherTheme === 'Red',
     'themeBlue' : otherTheme === 'Blue',
     'themeGreen' : otherTheme === 'Green',
-    'bgblack' : blackWhiteSelected
-  }">
+    'bgblack' : blackWhiteSelected}">
   <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
     [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'"
     [opened]="!(isHandset$ | async)">
-    <mat-nav-list>
-      <div style="margin: auto">
+    <mat-nav-list [ngClass]="{
+    'sidebarRed' : otherTheme === 'Red',
+    'sidebarBlue' : otherTheme === 'Blue',
+    'sidebarGreen' : otherTheme === 'Green'}">
+      <div class="centerThings">
         <h3 class="pt-2 pb-2">
-          Sadak
+          Company
         </h3>
       </div>
       <li [routerLinkActive]="'isActive'" class="list-group-item">
@@ -33,7 +35,7 @@
           <span>Payment</span>
         </a>
       </li>
-       <!-- <div class="row">
+      <!-- <div class="row">
       <div class="col-12" style="margin: auto;text-align: center">
         <div>
           <button mat-raised-button class="mt-2">Reduce Font</button>
@@ -42,25 +44,53 @@
       </div>
     </div> -->
     </mat-nav-list>
-   
+
+    <div class="row fullWidth">
+      <div class="col-12">
+        <div class="centerThings mt-4">
+          <h5>Theme: {{otherTheme}}</h5>
+          <div class="colorCombo" *ngIf="otherTheme === 'Green'">
+            <h5>Combinations to be avoided</h5>
+            <div  *ngFor="let greenCombo of AvoidCombinationsGreen">
+              <p>{{greenCombo}}</p>
+            </div>
+          </div>
+          <div class="colorCombo" *ngIf="otherTheme === 'Blue'">
+             <h5>Combinations to be avoided</h5>
+          <div *ngFor="let blueCombo of AvoidCombinationsBlue">
+            <p>{{blueCombo}}</p>
+          </div>
+          </div>
+          <div class="colorCombo" *ngIf="otherTheme === 'Red'">
+             <h5>Combinations to be avoided</h5>
+          <div *ngFor="let redCombo of AvoidCombinationsRed">
+            <p>{{redCombo}}</p>
+          </div>
+           </div>
+        </div>
+      </div>
+    </div>
+
   </mat-sidenav>
-  <mat-sidenav-content>
+  <mat-sidenav-content style="margin-left: 270px;">
     <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+      *ngIf="isHandset$ | async">
+      <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+    </button>
+    <mat-toolbar *ngIf="showError">
+      <!-- <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-    <!-- <mat-toolbar>
-      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-      <span class="ml-3">Project Color_699 by Piyu & Jay</span>
-    </mat-toolbar> -->
+      </button> -->
+      <span>
+        {{showMessage}}
+      </span>
+    </mat-toolbar>
     <!-- Add Content Here -->
     <ng-container>
-          <div class="container">
-            <router-outlet></router-outlet>
-          </div>
+      <div class="container">
+        <router-outlet></router-outlet>
+      </div>
     </ng-container>
   </mat-sidenav-content>
 </mat-sidenav-container>

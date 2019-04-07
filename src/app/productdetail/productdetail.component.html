@@ -1,6 +1,9 @@
 <div class="productDescription container-fluid mt-3" [ngClass]="{'bgBlackWhite': isBWclicked,
  'bgBlackYellow': isBYclicked,
-  'bgYellowBlack': isYBclicked}">
+  'bgYellowBlack': isYBclicked,
+  'redThemeClass': appTheme === 'Red',
+  'blueThemeClass': appTheme === 'Blue',
+  'greenThemeClass': appTheme === 'Green'}">
   <div class="row mb-3">
     <div class="col-12">
       <div class="utilityBar">
@@ -46,7 +49,7 @@
             <div class="row">
               <div class="col-lg-8 col-md-12">
                 <div *ngIf="appTheme !== ''">
-                  <h4 aria-label="Selected Theme">Slected theme : {{appTheme}}</h4>
+                  <h4 aria-label="Selected Theme">Selected theme : {{appTheme}}</h4>
                 </div>
               </div>
             </div>
