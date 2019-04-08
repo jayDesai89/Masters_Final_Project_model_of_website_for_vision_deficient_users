@@ -20,6 +20,7 @@ button:hover {
 a {
   border: 2px solid transparent;
 }
+
 a:hover {
   border: 2px dotted red;
 }
@@ -32,7 +33,9 @@ a:hover {
 .fullWidth {
   width: 100%;
 }
-.nextBtn , .previousBtn{
+
+.nextBtn,
+.previousBtn {
   width: 50%;
   padding: 2%;
 }
@@ -42,13 +45,14 @@ a:hover {
   padding
 } */
 .utilityBar {
-   /* // border: 1px solid red; */
-   margin: auto;
-   text-align: center;
-   padding-top: 1%;
-   padding-bottom: 2%;
-   border-bottom: 7px double blue;
+  /* // border: 1px solid red; */
+  margin: auto;
+  text-align: center;
+  padding-top: 1%;
+  padding-bottom: 2%;
+  border-bottom: 7px double blue;
 }
+
 .bgBlackWhite {
   background-color: black;
   color: white;

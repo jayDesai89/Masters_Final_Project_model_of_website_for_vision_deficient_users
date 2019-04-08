@@ -12,9 +12,9 @@ $custome-theme: mat-light-theme($custom-primary, $custom-accent);
 // Red Theme
 // $altrnetRed-accent: mat-palette($mat-green);
 // $altrnetRed-warn: mat-palette($mat-red);
-$altrnetRed-primary: mat-palette($mat-red);
-$altrnetRed-accent: mat-palette($mat-red);
-$altrnetRed-warn: mat-palette($mat-red);
+$altrnetRed-primary: mat-palette($mat-red, A700);
+$altrnetRed-accent: mat-palette($mat-red, A700);
+$altrnetRed-warn: mat-palette($mat-red, A700);
 $altrnetRed-theme: mat-dark-theme($altrnetRed-primary, $altrnetRed-accent, $altrnetRed-warn);
 .themeRed {
   @include angular-material-theme($altrnetRed-theme);

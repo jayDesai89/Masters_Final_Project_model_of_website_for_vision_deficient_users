@@ -20,7 +20,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   isBWclicked = false;
   isBYclicked = false;
   isYBclicked = false;
-
+  dashboard = false;
   constructor(private categories: CategoriesService,
     public dialog: MatDialog,
     public theme: ThemeService,
@@ -71,6 +71,8 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
   selectedCategory(product) {
      this.categories.getSelectedCategory(product);
+     this.dashboard = true;
+     this.handleRouting.getpageOneValidation(this.dashboard);
      this.goNext(2);
   }
 }
@@ -89,7 +91,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 export class SelectThemeDialogBox {
   description: any;
   selectedTheme = '';
-  themes: string[] = ['Red', 'Blue', 'Green'];
+  themes: string[] = ['Green', 'Red', 'Blue'];
   // position: TooltipPosition = 'below';
   showExtraClass = true;
 

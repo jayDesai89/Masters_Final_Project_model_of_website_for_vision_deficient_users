@@ -17,6 +17,7 @@ export class PaymentComponent implements OnInit {
   isBYclicked = false;
   isYBclicked = false;
   orderedTshirt;
+  formHasError = false;
   get billingFirstName() {
     return this.paymentForm.get('billingInfo.firstName');
   }
@@ -111,6 +112,8 @@ export class PaymentComponent implements OnInit {
     this.validateAllFormFields(this.paymentForm);
     if (this.paymentForm.valid) {
       this.openRreviewOrderDialog();
+    } else {
+      this.formHasError = true;
     }
     console.log(this.paymentForm.value);
   }

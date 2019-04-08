@@ -4,6 +4,9 @@ mat-form-field {
   width: 100%;
   margin-bottom: 3%;
 }
+ /deep/ mat-error {
+    color: red;
+  }
 
 button {
   border: 2px solid transparent;
@@ -16,7 +19,11 @@ button:hover {
 .bgBlackWhite {
   background-color: black;
   color: white;
-
+  .sideDiv  {
+    background-color: black;
+    color:white;
+    border: 1px solid white;
+  }
   mat-form-field {
     background-color: white;
     color: black;
@@ -25,14 +32,17 @@ button:hover {
   /deep/ mat-label {
       color: black;
   }
-  /deep/ mat-error {
-    color: red;
-  }
+  
 }
 
 .bgBlackYellow {
   background-color: black;
   color: yellow;
+   .sideDiv  {
+    background-color: black;
+    color:yellow;
+    border: 1px solid black;
+  }
   mat-form-field {
     background-color: yellow;
     color: black;
@@ -49,9 +59,14 @@ button:hover {
 .bgYellowBlack {
   background-color: yellow;
   color: black;
+   .sideDiv  {
+    background-color: yellow;
+    color:black;
+    border: 1px solid black;
+  }
   mat-form-field {
     background-color: black;
-    color: white;
+    color: orange;
     border-radius: 7px;
   }
     mat-label {
@@ -64,6 +79,8 @@ button:hover {
 
 .sideDiv {
   background-color: lightgrey;
+  border-radius: 7px;
+  padding: 3%;
   .sideBarRow {
   margin: 2% 0 2% 0;
 }
@@ -80,6 +97,12 @@ button:hover {
 }
 }
 
+.errorDiv {
+  color: red;
+  font-size: larger;
+  font-weight: bolder;
+}
+
 ::ng-deep .mat-tooltip {
   /* your own custom styles here */
   /* e.g. */
@@ -89,3 +112,4 @@ button:hover {
   font-size: 15px;
 }
 
+@import '../../themeBasedStyle';

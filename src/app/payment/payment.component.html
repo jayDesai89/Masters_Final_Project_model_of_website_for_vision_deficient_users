@@ -1,6 +1,9 @@
 <div class="container-fluid mt-3" class="productDescription container-fluid mt-3" [ngClass]="{'bgBlackWhite': isBWclicked,
  'bgBlackYellow': isBYclicked,
-  'bgYellowBlack': isYBclicked}">
+  'bgYellowBlack': isYBclicked,
+  'redThemeClass': appTheme === 'Red',
+  'blueThemeClass': appTheme === 'Blue',
+  'greenThemeClass': appTheme === 'Green'}">
   <div class="row mb-3">
     <div class="col-12">
       <div class="utilityBar">
@@ -36,12 +39,12 @@
   <div class="row">
     <div class="col-6">
       <div>
-        <h4>Payment</h4>
+        <h3>Payment</h3>
       </div>
     </div>
     <div class="col-6">
       <div *ngIf="appTheme !== ''">
-        <h4>Slected theme : {{appTheme}}</h4>
+        <h3>Selected theme : {{appTheme}}</h3>
       </div>
     </div>
   </div>
@@ -49,6 +52,18 @@
     <div class="col-lg-7 col-md-7 col-sm-12">
       <div>
         <div class="row">
+          <div class="col-12 centerThings" *ngIf="formHasError">
+            <div class="errorDiv">
+              <h3>
+                Your form has errors, Please check
+              </h3>
+            </div>
+          </div>
+          <div class="col-12" style="text-align: right">
+            <div>
+              <p> * fields are required</p>
+            </div>
+          </div>
           <div class="col-12">
             <div>
               <!--  [ngClass]="isBWclicked || isBYclicked || isYBclicked ? 'formFieldBG' : 'none'" -->
@@ -66,7 +81,7 @@
                   <div>
                     <mat-form-field appearance="fill">
                       <mat-label>Last Name</mat-label>
-                      <input matInput placeholder="Last Name" formControlName="lastName">
+                      <input matInput placeholder="Last Name" formControlName="lastName" required>
                       <mat-error *ngIf="billingLastName.invalid">Last name required</mat-error>
                     </mat-form-field>
                   </div>
@@ -74,7 +89,7 @@
                 <form action="" formGroupName="billingAddress">
                   <mat-form-field appearance="fill">
                     <mat-label>Address line 1</mat-label>
-                    <input matInput placeholder="Address line 1" formControlName="addressLine1">
+                    <input matInput placeholder="Address line 1" formControlName="addressLine1" required>
                     <mat-error *ngIf="billingAddLineOne.invalid">Address required</mat-error>
                   </mat-form-field>
                   <mat-form-field appearance="fill">
@@ -83,22 +98,22 @@
                   </mat-form-field>
                   <mat-form-field appearance="fill">
                     <mat-label>City</mat-label>
-                    <input matInput placeholder="City" formControlName="city">
+                    <input matInput placeholder="City" formControlName="city" required>
                     <mat-error *ngIf="billingAddCity.invalid">City required</mat-error>
                   </mat-form-field>
                   <mat-form-field appearance="fill">
                     <mat-label>ZIP</mat-label>
-                    <input matInput placeholder="ZIP" formControlName="zip">
+                    <input matInput placeholder="ZIP" formControlName="zip" required>
                     <mat-error *ngIf="billingAddZip.invalid">ZIP required</mat-error>
                   </mat-form-field>
                   <mat-form-field appearance="fill">
                     <mat-label>State</mat-label>
-                    <input matInput placeholder="State" formControlName="state">
+                    <input matInput placeholder="State" formControlName="state" required>
                     <mat-error *ngIf="billingAddState.invalid">State required</mat-error>
                   </mat-form-field>
                   <mat-form-field appearance="fill">
                     <mat-label>Country</mat-label>
-                    <input matInput placeholder="Country" formControlName="country">
+                    <input matInput placeholder="Country" formControlName="country" required>
                     <mat-error *ngIf="billingAddCountry.invalid">Country required</mat-error>
                   </mat-form-field>
 
@@ -106,17 +121,17 @@
                 <form action="" formGroupName="paymentMethod">
                   <mat-form-field appearance="fill">
                     <mat-label>Card Holder Name</mat-label>
-                    <input matInput formControlName="cardHolderName" placeholder="Card Holder Name">
+                    <input matInput formControlName="cardHolderName" placeholder="Card Holder Name" required>
                     <mat-error *ngIf="billingcardHolderName.invalid">Card-holder name required</mat-error>
                   </mat-form-field>
                   <mat-form-field appearance="fill">
                     <mat-label>Card Number</mat-label>
-                    <input matInput formControlName="cardNumber" placeholder="Card Number">
+                    <input matInput formControlName="cardNumber" placeholder="Card Number" required>
                     <mat-error *ngIf="billingcardHolderCvv.invalid">Card number required</mat-error>
                   </mat-form-field>
                   <mat-form-field appearance="fill">
                     <mat-label>CVV</mat-label>
-                    <input matInput formControlName="cvvNumber" placeholder="CVV">
+                    <input matInput formControlName="cvvNumber" placeholder="CVV" required>
                     <mat-error *ngIf="billingFirstName.invalid">CVV number required</mat-error>
                   </mat-form-field>
                 </form>
@@ -128,12 +143,12 @@
         <div class="row mt-4 mb-5">
           <div class="col-6 centerThings">
             <div class="col-auto"><button class="nextBtn" (click)="goNext(3)" color="primary" mat-raised-button
-                matTooltip="Go to next page" aria-label="Button for navigation to previous page"
-                matTooltipPosition="right">Back</button></div>
+                matTooltip="Go to previous page" aria-label="Button for navigation to previous page"
+                matTooltipPosition="right">Previous</button></div>
           </div>
           <div class="col-6 centerThings">
             <div class="col-auto"><button class="previousBtn" color="primary" mat-raised-button
-                matTooltip="Go to next page" aria-label="Button for navigation to next page" matTooltipPosition="right"
+                matTooltip="Go to next page" aria-label="Button to confirm the order" matTooltipPosition="right"
                 (click)="submit()">Submit</button></div>
           </div>
         </div>
@@ -146,7 +161,7 @@
         <div class="row sideBarRow">
           <div class="col-6">
             <div><strong>
-                Slected item
+                Selected item
               </strong></div>
           </div>
           <div class="col-6">
@@ -180,7 +195,7 @@
           </div>
         </div>
         <div class="row sideBarRow totalRow">
-          <div class="col-12">
+          <div class="col-12 mb-4">
             <div class="borderDiv"></div>
           </div>
           <div class="col-6">
