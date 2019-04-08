@@ -19,7 +19,11 @@ button:hover {
 .bgBlackWhite {
   background-color: black;
   color: white;
-
+  .sideDiv  {
+    background-color: black;
+    color:white;
+    border: 1px solid white;
+  }
   mat-form-field {
     background-color: white;
     color: black;
@@ -34,6 +38,11 @@ button:hover {
 .bgBlackYellow {
   background-color: black;
   color: yellow;
+   .sideDiv  {
+    background-color: black;
+    color:yellow;
+    border: 1px solid black;
+  }
   mat-form-field {
     background-color: yellow;
     color: black;
@@ -50,6 +59,11 @@ button:hover {
 .bgYellowBlack {
   background-color: yellow;
   color: black;
+   .sideDiv  {
+    background-color: yellow;
+    color:black;
+    border: 1px solid black;
+  }
   mat-form-field {
     background-color: black;
     color: orange;

@@ -1,4 +1,4 @@
-<div class="productDescription container-fluid mt-3" [ngClass]="{'bgBlackWhite': isBWclicked,
+<div class="container-fluid mt-3" class="productDescription container-fluid mt-3" [ngClass]="{'bgBlackWhite': isBWclicked,
  'bgBlackYellow': isBYclicked,
   'bgYellowBlack': isYBclicked,
   'redThemeClass': appTheme === 'Red',
@@ -38,7 +38,7 @@
   </div>
   <div class="row">
     <div class="col-12">
-      <div class="dashboard">
+      <div class="">
         <div class="row pageTitleRow">
           <div class="col-lg-6 col-md-12">
             <div>
@@ -56,6 +56,7 @@
           </div>
         </div>
         <!-- Product Discription  -->
+        <ng-container>
         <ng-container *ngFor="let productDetail of displayDetailOfTshirt">
           <div class="row produtDiscription-Background">
             <div class="col-lg-7 col-md-12 centerThings">
@@ -67,9 +68,7 @@
             </div>
             <div class="col-lg-5 col-md-12">
               <div>
-                <form action="" [formGroup]="backgroundColorsForm" [ngClass]="{'bgBlackWhite': isBWclicked,
- 'bgBlackYellow': isBYclicked,
-  'bgYellowBlack': isYBclicked}">
+                <form action="" [formGroup]="backgroundColorsForm" >
                   <!-- Select background color -->
                   <mat-form-field class="fullWidth" appearance="fill">
                     <mat-label>Try different background color</mat-label>
@@ -125,7 +124,7 @@
             </div>
           </div>
           <!-- Product Feedback -->
-          <div class="row">
+          <div class="row" >
             <div class="col-12">
               <div>
                 <h1>Product Feedback</h1>
@@ -176,10 +175,10 @@
             </div>
           </div>
         </ng-container>
-        <div class="row">
+        <div class="row mb-4">
           <div class="col-6 centerThings">
             <div class="col-auto"><button class="nextBtn" (click)="goNext(2)" color="primary" mat-raised-button 
-            matTooltip="Go to next page" aria-label="Button for navigation to previous page"
+            matTooltip="Go to previous page" aria-label="Button for navigation to previous page"
                 matTooltipPosition="right">Previous</button></div>
           </div>
           <div class="col-6 centerThings">
@@ -188,6 +187,7 @@
                 matTooltipPosition="right">Next</button></div>
           </div>
         </div>
+        </ng-container>
       </div>
     </div>
   </div>

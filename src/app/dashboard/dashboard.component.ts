@@ -91,7 +91,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 export class SelectThemeDialogBox {
   description: any;
   selectedTheme = '';
-  themes: string[] = ['Red', 'Blue', 'Green'];
+  themes: string[] = ['Green', 'Red', 'Blue'];
   // position: TooltipPosition = 'below';
   showExtraClass = true;
 

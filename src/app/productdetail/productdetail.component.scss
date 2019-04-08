@@ -1,5 +1,10 @@
 @import '../../styles.css';
 
+
+.productDescription {
+ width: 100%;
+  // height: -webkit-fill-available;
+}
 .bgImg {
   height: 100%;
   // background-image: url('../../assets/backgroundPatterns/stripe_1.png');
@@ -31,7 +36,7 @@ button:hover {
 
 .bgBlackWhite {
   background-color: black;
-  color: yellowgreen;
+  color: white;
 
   mat-form-field {
     background-color: white;
