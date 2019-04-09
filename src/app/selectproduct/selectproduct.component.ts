@@ -22,6 +22,7 @@ export class SelectproductComponent implements OnInit {
   private handleRouting: HandleroutingService) { }
 
   ngOnInit() {
+    window.scroll(0,0);
     this.theme.themeOfApp.subscribe(res => this.appTheme = res);
     this.categoryService.checkcategorySelected.subscribe((res) => {
       this.showSelectedCategory = res;
