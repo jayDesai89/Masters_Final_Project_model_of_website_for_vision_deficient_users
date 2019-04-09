@@ -3,7 +3,6 @@ import { ProductsService } from './../services/product/products.service';
 import { Component, OnInit } from '@angular/core';
 import { ThemeService } from '../services/theme/theme.service';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
-import { Url } from 'url';
 
 /**
  *  Due to not having large color options locally interface of model is created
@@ -25,7 +24,6 @@ export interface ArrayOfBackgroundPattern {
   styleUrls: ['./productdetail.component.scss']
 })
 export class ProductdetailComponent implements OnInit {
-  window.scroll(0,0);
   appTheme;
   arrayOfBackgroundColors: ArrayOfBackgroundColors[] = [
     { value: 'red', viewValue: 'Red' },
@@ -54,6 +52,7 @@ export class ProductdetailComponent implements OnInit {
   private handleRouting: HandleroutingService ) { }
 
   ngOnInit() {
+    window.scrollTo(0, 0);
     this.theme.themeOfApp.subscribe(res => this.appTheme = res);
     console.log(this.arrayOfBackgroundColors);
     this.backgroundColorsForm = new FormGroup({

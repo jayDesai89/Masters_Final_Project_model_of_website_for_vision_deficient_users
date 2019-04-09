@@ -55,6 +55,7 @@ export class PaymentComponent implements OnInit {
   private productsService: ProductsService) { }
 
   ngOnInit() {
+    window.scrollTo(0, 0);
     this.theme.themeOfApp.subscribe(res => this.appTheme = res);
     this.paymentForm = this.formBuilder.group({
       'billingInfo': new FormGroup({

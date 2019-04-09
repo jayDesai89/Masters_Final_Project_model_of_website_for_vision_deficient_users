@@ -30,6 +30,8 @@ import { ProductdetailComponent } from './productdetail/productdetail.component'
 import { PaymentComponent, PreviewOrderDialogBox } from './payment/payment.component';
 import { SelectproductComponent } from './selectproduct/selectproduct.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { WindowserviceService } from './services/window/windowservice.service';
 
 @NgModule({
   declarations: [
@@ -81,7 +83,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
   ],
   providers: [
-    CategoriesService
+    CategoriesService,
+    WindowserviceService
   ],
   bootstrap: [AppComponent]
 })

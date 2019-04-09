@@ -7,7 +7,7 @@ import { SelectproductComponent } from './selectproduct/selectproduct.component'
 import { PaymentComponent } from './payment/payment.component';
 
 const routes: Routes = [
-  { path: 'projectColors', component: DashboardComponent},
+  { path: 'dashboard', component: DashboardComponent},
    { path: 'selectproduct', component: SelectproductComponent},
     { path: 'productdetail', component: ProductdetailComponent},
      { path: 'payment', component: PaymentComponent},
@@ -15,7 +15,8 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes),
+    // RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' }),
     CommonModule,
     RouterModule
   ],

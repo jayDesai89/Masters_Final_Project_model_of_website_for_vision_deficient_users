@@ -1,8 +1,7 @@
 <mat-sidenav-container class="sidenav-container" [ngClass]="{
     'themeRed' : otherTheme === 'Red',
     'themeBlue' : otherTheme === 'Blue',
-    'themeGreen' : otherTheme === 'Green',
-    'bgblack' : blackWhiteSelected}">
+    'themeGreen' : otherTheme === 'Green'}">
   <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
     [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'"
     [opened]="!(isHandset$ | async)">
@@ -16,7 +15,7 @@
         </h3>
       </div>
       <li [routerLinkActive]="'isActive'" class="list-group-item">
-        <a [routerLink]="['/projectColors']" [routerLinkActive]="'isActive'" aria-label="Dashboard_Page">
+        <a [routerLink]="['/dashboard']" [routerLinkActive]="'isActive'" aria-label="Dashboard_Page">
           <span>Dashboard</span>
         </a>
       </li>
@@ -35,14 +34,6 @@
           <span>Payment</span>
         </a>
       </li>
-      <!-- <div class="row">
-      <div class="col-12" style="margin: auto;text-align: center">
-        <div>
-          <button mat-raised-button class="mt-2">Reduce Font</button>
-          <button mat-raised-button class="mt-2">Increase Font</button>
-        </div>
-      </div>
-    </div> -->
     </mat-nav-list>
 
     <div class="row fullWidth">
@@ -73,7 +64,9 @@
 
   </mat-sidenav>
   <mat-sidenav-content style="margin-left: 270px;">
-    <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+    <button type="button" aria-label="Toggle sidenav" matTooltip="Side nav toggle icon" 
+    matTooltipPosition="right"
+    mat-icon-button (click)="drawer.toggle()"
       *ngIf="isHandset$ | async">
       <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
     </button>
