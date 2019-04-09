@@ -27,6 +27,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     private handleRouting: HandleroutingService) { }
 
   ngOnInit() {
+    window.scroll(0,0);
     this.categories.getCategory().subscribe((res) => {
       this.availableCategory = res.categories;
       console.log(this.availableCategory);
