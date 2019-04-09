@@ -25,6 +25,7 @@ export interface ArrayOfBackgroundPattern {
   styleUrls: ['./productdetail.component.scss']
 })
 export class ProductdetailComponent implements OnInit {
+  window.scroll(0,0);
   appTheme;
   arrayOfBackgroundColors: ArrayOfBackgroundColors[] = [
     { value: 'red', viewValue: 'Red' },
